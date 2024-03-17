@@ -2,10 +2,33 @@ import React, { useState } from 'react'
 import BackgroundImages from '../components/BackgroundImages'
 import Header from '../components/Header'
 import styled from 'styled-components'
+import { firebaseAuth } from '../Utils/Firebase-config'
+import { createUserWithEmailAndPassword,onAuthStateChanged } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Signup() {
-  const [showPassword, setshowpassword] = useState(false)
+  const [showPassword, setshowpassword] = useState(false);
+  const navigate = useNavigate();
+  const [formValues, setFromValues] = useState({
+    email: "",
+    poassword: "",
+  });
+
+
+const handleSignIn = async () => {
+  try{
+    const{ email, password} = formValues;
+    await createUserWithEmailAndPassword(firebaseAuth, email, password);
+  } catch(err){
+    console.log(err);
+  }
+}
+
+onAuthStateChanged(firebaseAuth, (currentUser) => {
+  if (currentUser) navigate("/");
+});
+
   return (
     <Container showPassword = {showPassword}>
       <BackgroundImages/>
@@ -18,14 +41,16 @@ export default function Signup() {
           {/* <h6>Ready to watch? Enter your email to create or restart membership</h6> */}
         </div>
         <div className='form'>
-          <input type="email" placeholder='Email Adress' name='email'/>
+          <input type="email" placeholder='Email Adress' name='email' value={formValues.email} onChange={(e) => setFromValues({...formValues,[e.target.name]: e.target.value})}/>
           {
-            showPassword &&
-          <input type="password" placeholder='Password' name='password'/>
-          }
-         { !showPassword && <button onClick={() => setshowpassword(true)}>Get Started</button>}
+            showPassword && (
+          <input type="password" placeholder='Password' name='password' value={formValues.password} onChange={(e) => setFromValues({...formValues,[e.target.name]: e.target.value})}/>
+          )}
+         { !showPassword && (
+         <button onClick={() => setshowpassword(true)}>Get Started</button>
+         )}
         </div>
-        <button>Log In</button>
+        <button onClick={handleSignIn}>Sign Up</button>
       </div>
       </div>
     </Container>
