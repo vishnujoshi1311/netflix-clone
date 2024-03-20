@@ -62,6 +62,7 @@ const [inputHover, setInputHover] = useState(false)
                     <FaPowerOff />
                 </button>
             </div>
+            <div>jnsfhuweh</div>
         </nav>
     </Container>
   )
