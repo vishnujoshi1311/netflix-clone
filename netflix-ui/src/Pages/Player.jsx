@@ -14,10 +14,7 @@ export default function Player() {
         </div>
         <video src={video} autoPlay loop controls muted></video>
       </div>
-     <div>
-      <div>sjshbi</div>
-      <div>,msak</div>
-     </div>
+
     </Container>
   )
 }
