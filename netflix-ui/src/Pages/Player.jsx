@@ -14,7 +14,9 @@ export default function Player() {
         </div>
         <video src={video} autoPlay loop controls muted></video>
       </div>
-
+       <div>
+        <div>jsudu</div>
+       </div>
     </Container>
   )
 }
