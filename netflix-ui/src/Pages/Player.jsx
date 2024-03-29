@@ -17,6 +17,9 @@ export default function Player() {
        <div>
         <div>jsudu</div>
        </div>
+       <div>
+        <div>asdd</div>
+       </div>
     </Container>
   )
 }
