@@ -12,14 +12,8 @@ export default function Player() {
         <div className="back">
           <BsArrowLeft onClick={() => navigate(-1)}/>
         </div>
-        <video src={video} autoPlay loop controls muted></video>
+        <video src={video} autoPlay loop controls></video>
       </div>
-       <div>
-        <div>jsudu</div>
-       </div>
-       <div>
-        <div>asdd</div>
-       </div>
     </Container>
   )
 }
