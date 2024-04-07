@@ -53,12 +53,8 @@ onAuthStateChanged(firebaseAuth, (currentUser) => {
         <button onClick={handleSignIn}>Sign Up</button>
       </div>
       </div>
-      <div>
-        sjkfhweiuh
-      </div>
-      <div>
-        <div>sgyduwe</div>
-      </div>
+      <div>jhbcusdycg</div>
+      
     </Container>
   )
 }
